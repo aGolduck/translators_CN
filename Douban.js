@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2024-03-21 05:40:28"
+	"lastUpdated": "2024-04-09 10:17:28"
 }
 
 /*
@@ -150,6 +150,14 @@ async function scrape(doc, url = doc.location.href) {
 			// https://book.douban.com/subject/26604008/
 			extra.set('original-title', labels.getWith('原作名'), true);
 			extra.set('price', labels.getWith('定价'));
+                        const image = doc.querySelector('meta[property="og:image"]').getAttribute('content')
+			if (image) {
+				newItem.attachments.push({
+					title: '《' + newItem.title + '》 - 封面',
+					url: image,
+					mimeType: 'image/' + tryMatch(image, /\.([a-z]+?)$/, 1)
+				});
+			}
 			break;
 		}
 		case 'film': {
