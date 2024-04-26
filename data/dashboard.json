@@ -8364,19 +8364,19 @@
     "zhLabel": "豆瓣",
     "trends": [
       {
+        "author": "wpchou",
+        "date": "2024-04-26 11:50:30 +0800",
+        "message": "Merge remote-tracking branch 'origin/master'"
+      },
+      {
         "author": "jiaojiaodubai",
         "date": "2024-04-17 21:06:27 +0800",
         "message": "fix #335"
       },
       {
-        "author": "jiaojiaodubai",
-        "date": "2024-03-21 13:53:16 +0800",
-        "message": "fix #330"
-      },
-      {
-        "author": "jiaojiaodubai",
-        "date": "2024-03-18 14:36:31 +0800",
-        "message": "修复original-author记录错异常"
+        "author": "wenpin",
+        "date": "2024-04-13 14:50:18 +0800",
+        "message": "为豆瓣读书添加封面图片附件"
       }
     ]
   },
