@@ -2,14 +2,14 @@
 	"translatorID": "867474da-38d5-48eb-90cf-64e90aeb04d3",
 	"label": "Baidu Baike",
 	"creator": "pixiandouban",
-	"target": "^https?://baike.baidu.(com|hk)",
+	"target": "^https?://baike\\.baidu\\.(com|hk)",
 	"minVersion": "2.1.9",
 	"maxVersion": "",
 	"priority": 100,
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2024-01-11 13:15:45"
+	"lastUpdated": "2024-07-09 14:32:38"
 }
 
 /*
@@ -46,12 +46,12 @@ function detectWeb(doc, url) {
 }
 
 function getSearchResults(doc, checkOnly) {
-	var items = {};
-	var found = false;
-	var rows = doc.querySelectorAll('a[href*="/item/"]');
-	for (let row of rows) {
-		let href = row.href;
-		let title = ZU.trimInternal(row.textContent);
+	const items = {};
+	let found = false;
+	const rows = doc.querySelectorAll('a[class^="title_"][href*="/item/"]');
+	for (const row of rows) {
+		const href = row.href;
+		const title = ZU.trimInternal(row.textContent);
 		if (!href || !title) continue;
 		if (checkOnly) return true;
 		found = true;
@@ -64,17 +64,17 @@ async function doWeb(doc, url) {
 	if (detectWeb(doc, url) == 'multiple') {
 		let items = await Zotero.selectItems(getSearchResults(doc, false));
 		if (!items) return;
-		for (let url of Object.keys(items)) {
-			await scrape(await requestDocument(url));
+		for (const url of Object.keys(items)) {
+			scrape(await requestDocument(url));
 		}
 	}
 	else {
-		await scrape(doc, url);
+		scrape(doc, url);
 	}
 }
 
 function scrape(doc, _url) {
-	var newItem = new Zotero.Item('encyclopediaArticle');
+	const newItem = new Zotero.Item('encyclopediaArticle');
 	newItem.title = text(doc, 'h1[class*="title"]');
 	newItem.abstractNote = attr(doc, 'meta[name="description"]', 'content');
 	newItem.encyclopediaTitle = '百度百科';
