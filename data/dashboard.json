@@ -8437,19 +8437,19 @@
     "zhLabel": "豆瓣",
     "trends": [
       {
+        "author": "wpchou",
+        "date": "2025-01-07 14:30:47 +0800",
+        "message": "Merge remote-tracking branch 'origin/master'"
+      },
+      {
         "author": "jiaojiaodubai",
         "date": "2024-11-26 14:36:51 +0800",
         "message": "fix #412"
       },
       {
-        "author": "jiaojiaodubai",
-        "date": "2024-10-04 22:37:03 +0800",
-        "message": "fix typo"
-      },
-      {
-        "author": "jiaojiaodubai",
-        "date": "2024-09-20 13:11:05 +0800",
-        "message": "close #383"
+        "author": "wpchou",
+        "date": "2024-10-30 14:47:59 +0800",
+        "message": "Merge remote-tracking branch 'origin/master'"
       }
     ]
   },
